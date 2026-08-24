@@ -1,0 +1,266 @@
+[
+  {
+    "id": "vanilla-js-starter",
+    "name": "Vanilla JS Starter",
+    "description": "Plain HTML, CSS and JavaScript starter project with live reload via Vite",
+    "category": "frontend",
+    "framework": "vanilla",
+    "language": "javascript",
+    "parameters": [
+      {
+        "name": "projectName",
+        "label": "Project Name",
+        "type": "string",
+        "default": "vanilla-app"
+      }
+    ],
+    "files": [
+      {
+        "path": "package.json",
+        "content": "{\n  \"name\": \"{{projectName}}\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"type\": \"module\",\n  \"scripts\": {\n    \"dev\": \"vite\",\n    \"build\": \"vite build\",\n    \"preview\": \"vite preview\"\n  },\n  \"devDependencies\": {\n    \"vite\": \"^5.1.0\"\n  }\n}"
+      },
+      {
+        "path": "index.html",
+        "content": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>{{projectName}}</title>\n    <link rel=\"stylesheet\" href=\"/src/style.css\" />\n  </head>\n  <body>\n    <div id=\"app\">\n      <h1>Hello, {{projectName}}</h1>\n      <p>Edit <code>src/main.js</code> to start building.</p>\n      <button id=\"counter\" type=\"button\">Count is 0</button>\n    </div>\n    <script type=\"module\" src=\"/src/main.js\"></script>\n  </body>\n</html>"
+      },
+      {
+        "path": "src/main.js",
+        "content": "import './style.css';\n\nlet count = 0;\nconst button = document.querySelector('#counter');\nbutton.addEventListener('click', () => {\n  count += 1;\n  button.textContent = `Count is ${count}`;\n});\n"
+      },
+      {
+        "path": "src/style.css",
+        "content": ":root {\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n  line-height: 1.5;\n  color-scheme: light dark;\n}\n\nbody {\n  margin: 0;\n  display: flex;\n  place-items: center;\n  min-height: 100vh;\n  background: #f8f9fa;\n}\n\n#app {\n  max-width: 640px;\n  margin: 0 auto;\n  padding: 2rem;\n  text-align: center;\n}\n\nh1 {\n  font-size: 2rem;\n  margin-bottom: 0.5rem;\n}\n\nbutton {\n  padding: 0.75rem 1.5rem;\n  border: none;\n  border-radius: 0.5rem;\n  background: #2563eb;\n  color: white;\n  font-size: 1rem;\n  cursor: pointer;\n  margin-top: 1rem;\n}\n\nbutton:hover {\n  background: #1d4ed8;\n}\n"
+      },
+      {
+        "path": "README.md",
+        "content": "# {{projectName}}\n\nVanilla JavaScript starter project.\n\n## Getting Started\n\n```bash\nnpm install\nnpm run dev\n```\n"
+      }
+    ]
+  },
+  {
+    "id": "react-ts-starter",
+    "name": "React + TypeScript Starter",
+    "description": "Modern React starter with TypeScript, Vite and ESLint",
+    "category": "frontend",
+    "framework": "react",
+    "language": "typescript",
+    "parameters": [
+      {
+        "name": "projectName",
+        "label": "Project Name",
+        "type": "string",
+        "default": "react-ts-app"
+      }
+    ],
+    "files": [
+      {
+        "path": "package.json",
+        "content": "{\n  \"name\": \"{{projectName}}\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"type\": \"module\",\n  \"scripts\": {\n    \"dev\": \"vite\",\n    \"build\": \"tsc && vite build\",\n    \"lint\": \"eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0\",\n    \"preview\": \"vite preview\"\n  },\n  \"dependencies\": {\n    \"react\": \"^18.2.0\",\n    \"react-dom\": \"^18.2.0\"\n  },\n  \"devDependencies\": {\n    \"@types/react\": \"^18.2.55\",\n    \"@types/react-dom\": \"^18.2.19\",\n    \"@typescript-eslint/eslint-plugin\": \"^7.0.2\",\n    \"@typescript-eslint/parser\": \"^7.0.2\",\n    \"@vitejs/plugin-react\": \"^4.2.1\",\n    \"eslint\": \"^8.56.0\",\n    \"eslint-plugin-react-hooks\": \"^4.6.0\",\n    \"eslint-plugin-react-refresh\": \"^0.4.5\",\n    \"typescript\": \"^5.3.3\",\n    \"vite\": \"^5.1.0\"\n  }\n}"
+      },
+      {
+        "path": "index.html",
+        "content": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>{{projectName}}</title>\n  </head>\n  <body>\n    <div id=\"root\"></div>\n    <script type=\"module\" src=\"/src/main.tsx\"></script>\n  </body>\n</html>"
+      },
+      {
+        "path": "src/main.tsx",
+        "content": "import React from 'react';\nimport ReactDOM from 'react-dom/client';\nimport App from './App';\nimport './index.css';\n\nReactDOM.createRoot(document.getElementById('root')!).render(\n  <React.StrictMode>\n    <App />\n  </React.StrictMode>\n);\n"
+      },
+      {
+        "path": "src/App.tsx",
+        "content": "import { useState } from 'react';\n\nfunction App() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <main className=\"container\">\n      <h1>{{projectName}}</h1>\n      <p>React + TypeScript starter</p>\n      <button onClick={() => setCount((c) => c + 1)}>\n        count is {count}\n      </button>\n    </main>\n  );\n}\n\nexport default App;\n"
+      },
+      {
+        "path": "src/index.css",
+        "content": ":root {\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n  line-height: 1.5;\n  color-scheme: light dark;\n}\n\nbody {\n  margin: 0;\n  min-height: 100vh;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #f8f9fa;\n}\n\n.container {\n  text-align: center;\n  padding: 2rem;\n}\n\nh1 {\n  font-size: 2.5rem;\n  margin-bottom: 0.5rem;\n}\n\nbutton {\n  padding: 0.75rem 1.5rem;\n  border: none;\n  border-radius: 0.5rem;\n  background: #2563eb;\n  color: white;\n  font-size: 1rem;\n  cursor: pointer;\n}\n\nbutton:hover {\n  background: #1d4ed8;\n}\n"
+      },
+      {
+        "path": "tsconfig.json",
+        "content": "{\n  \"compilerOptions\": {\n    \"target\": \"ES2020\",\n    \"useDefineForClassFields\": true,\n    \"lib\": [\"ES2020\", \"DOM\", \"DOM.Iterable\"],\n    \"module\": \"ESNext\",\n    \"skipLibCheck\": true,\n    \"moduleResolution\": \"bundler\",\n    \"allowImportingTsExtensions\": true,\n    \"resolveJsonModule\": true,\n    \"isolatedModules\": true,\n    \"noEmit\": true,\n    \"jsx\": \"react-jsx\",\n    \"strict\": true,\n    \"noUnusedLocals\": true,\n    \"noUnusedParameters\": true,\n    \"noFallthroughCasesInSwitch\": true\n  },\n  \"include\": [\"src\"],\n  \"references\": [{ \"path\": \"./tsconfig.node.json\" }]\n}"
+      },
+      {
+        "path": "tsconfig.node.json",
+        "content": "{\n  \"compilerOptions\": {\n    \"composite\": true,\n    \"skipLibCheck\": true,\n    \"module\": \"ESNext\",\n    \"moduleResolution\": \"bundler\",\n    \"allowSyntheticDefaultImports\": true\n  },\n  \"include\": [\"vite.config.ts\"]\n}"
+      },
+      {
+        "path": "vite.config.ts",
+        "content": "import { defineConfig } from 'vite';\nimport react from '@vitejs/plugin-react';\n\nexport default defineConfig({\n  plugins: [react()],\n});\n"
+      },
+      {
+        "path": "README.md",
+        "content": "# {{projectName}}\n\nReact + TypeScript + Vite starter.\n\n## Getting Started\n\n```bash\nnpm install\nnpm run dev\n```\n"
+      }
+    ]
+  },
+  {
+    "id": "vue3-ts-starter",
+    "name": "Vue 3 + TypeScript Starter",
+    "description": "Vue 3 starter with TypeScript, Vite and Vue SFC",
+    "category": "frontend",
+    "framework": "vue3",
+    "language": "typescript",
+    "parameters": [
+      {
+        "name": "projectName",
+        "label": "Project Name",
+        "type": "string",
+        "default": "vue3-ts-app"
+      }
+    ],
+    "files": [
+      {
+        "path": "package.json",
+        "content": "{\n  \"name\": \"{{projectName}}\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"type\": \"module\",\n  \"scripts\": {\n    \"dev\": \"vite\",\n    \"build\": \"vue-tsc && vite build\",\n    \"preview\": \"vite preview\"\n  },\n  \"dependencies\": {\n    \"vue\": \"^3.4.0\"\n  },\n  \"devDependencies\": {\n    \"@vitejs/plugin-vue\": \"^5.0.0\",\n    \"typescript\": \"^5.3.3\",\n    \"vite\": \"^5.1.0\",\n    \"vue-tsc\": \"^1.8.0\"\n  }\n}"
+      },
+      {
+        "path": "index.html",
+        "content": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>{{projectName}}</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <script type=\"module\" src=\"/src/main.ts\"></script>\n  </body>\n</html>"
+      },
+      {
+        "path": "src/main.ts",
+        "content": "import { createApp } from 'vue';\nimport App from './App.vue';\nimport './style.css';\n\ncreateApp(App).mount('#app');\n"
+      },
+      {
+        "path": "src/App.vue",
+        "content": "<template>\n  <div class=\"container\">\n    <h1>{{ projectName }}</h1>\n    <p>Vue 3 + TypeScript starter</p>\n    <button @click=\"count++\">count is {{ count }}</button>\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport { ref } from 'vue';\n\nconst projectName = '{{projectName}}';\nconst count = ref(0);\n</script>\n\n<style scoped>\n.container {\n  text-align: center;\n  padding: 2rem;\n}\n\nh1 {\n  font-size: 2.5rem;\n}\n\nbutton {\n  padding: 0.75rem 1.5rem;\n  border: none;\n  border-radius: 0.5rem;\n  background: #42b883;\n  color: white;\n  font-size: 1rem;\n  cursor: pointer;\n}\n\nbutton:hover {\n  background: #369870;\n}\n</style>\n"
+      },
+      {
+        "path": "src/style.css",
+        "content": ":root {\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n  line-height: 1.5;\n  color-scheme: light dark;\n}\n\nbody {\n  margin: 0;\n  min-height: 100vh;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #f8f9fa;\n}\n"
+      },
+      {
+        "path": "tsconfig.json",
+        "content": "{\n  \"compilerOptions\": {\n    \"target\": \"ES2020\",\n    \"useDefineForClassFields\": true,\n    \"module\": \"ESNext\",\n    \"lib\": [\"ES2020\", \"DOM\", \"DOM.Iterable\"],\n    \"skipLibCheck\": true,\n    \"moduleResolution\": \"bundler\",\n    \"allowImportingTsExtensions\": true,\n    \"resolveJsonModule\": true,\n    \"isolatedModules\": true,\n    \"noEmit\": true,\n    \"jsx\": \"preserve\",\n    \"strict\": true,\n    \"noUnusedLocals\": true,\n    \"noUnusedParameters\": true,\n    \"noFallthroughCasesInSwitch\": true\n  },\n  \"include\": [\"src/**/*.ts\", \"src/**/*.vue\"],\n  \"references\": [{ \"path\": \"./tsconfig.node.json\" }]\n}"
+      },
+      {
+        "path": "tsconfig.node.json",
+        "content": "{\n  \"compilerOptions\": {\n    \"composite\": true,\n    \"skipLibCheck\": true,\n    \"module\": \"ESNext\",\n    \"moduleResolution\": \"bundler\",\n    \"allowSyntheticDefaultImports\": true\n  },\n  \"include\": [\"vite.config.ts\"]\n}"
+      },
+      {
+        "path": "vite.config.ts",
+        "content": "import { defineConfig } from 'vite';\nimport vue from '@vitejs/plugin-vue';\n\nexport default defineConfig({\n  plugins: [vue()],\n});\n"
+      },
+      {
+        "path": "README.md",
+        "content": "# {{projectName}}\n\nVue 3 + TypeScript + Vite starter.\n\n## Getting Started\n\n```bash\nnpm install\nnpm run dev\n```\n"
+      }
+    ]
+  },
+  {
+    "id": "node-ts-starter",
+    "name": "Node.js + TypeScript Starter",
+    "description": "Backend starter with TypeScript, Fastify and tsx for development",
+    "category": "backend",
+    "framework": "node",
+    "language": "typescript",
+    "parameters": [
+      {
+        "name": "projectName",
+        "label": "Project Name",
+        "type": "string",
+        "default": "node-ts-app"
+      }
+    ],
+    "files": [
+      {
+        "path": "package.json",
+        "content": "{\n  \"name\": \"{{projectName}}\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"type\": \"module\",\n  \"scripts\": {\n    \"dev\": \"tsx watch src/index.ts\",\n    \"build\": \"tsc\",\n    \"start\": \"node dist/index.js\",\n    \"test\": \"node --test dist/**/*.test.js\"\n  },\n  \"dependencies\": {\n    \"fastify\": \"^4.26.0\"\n  },\n  \"devDependencies\": {\n    \"@types/node\": \"^20.11.0\",\n    \"tsx\": \"^4.7.0\",\n    \"typescript\": \"^5.3.3\"\n  }\n}"
+      },
+      {
+        "path": "src/index.ts",
+        "content": "import Fastify from 'fastify';\n\nconst app = Fastify({ logger: true });\n\napp.get('/health', async () => ({ status: 'ok' }));\n\napp.get('/', async () => ({\n  message: 'Hello from {{projectName}}',\n}));\n\nconst start = async () => {\n  try {\n    await app.listen({ port: 3000, host: '0.0.0.0' });\n  } catch (err) {\n    app.log.error(err);\n    process.exit(1);\n  }\n};\n\nstart();\n"
+      },
+      {
+        "path": "tsconfig.json",
+        "content": "{\n  \"compilerOptions\": {\n    \"target\": \"ES2022\",\n    \"module\": \"ESNext\",\n    \"moduleResolution\": \"bundler\",\n    \"outDir\": \"dist\",\n    \"rootDir\": \"src\",\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"skipLibCheck\": true,\n    \"forceConsistentCasingInFileNames\": true,\n    \"resolveJsonModule\": true\n  },\n  \"include\": [\"src\"]\n}"
+      },
+      {
+        "path": "README.md",
+        "content": "# {{projectName}}\n\nNode.js + TypeScript starter.\n\n## Getting Started\n\n```bash\nnpm install\nnpm run dev\n```\n\nVisit http://localhost:3000/health\n"
+      }
+    ]
+  },
+  {
+    "id": "python-starter",
+    "name": "Python Starter",
+    "description": "Python project starter with FastAPI and uvicorn",
+    "category": "backend",
+    "framework": "python",
+    "language": "python",
+    "parameters": [
+      {
+        "name": "projectName",
+        "label": "Project Name",
+        "type": "string",
+        "default": "python-app"
+      }
+    ],
+    "files": [
+      {
+        "path": "requirements.txt",
+        "content": "fastapi==0.109.0\nuvicorn[standard]==0.27.0\n"
+      },
+      {
+        "path": "main.py",
+        "content": "from fastapi import FastAPI\n\napp = FastAPI(title=\"{{projectName}}\")\n\n@app.get(\"/\")\ndef read_root():\n    return {\"message\": \"Hello from {{projectName}}\"}\n\n@app.get(\"/health\")\ndef health():\n    return {\"status\": \"ok\"}\n"
+      },
+      {
+        "path": "README.md",
+        "content": "# {{projectName}}\n\nPython + FastAPI starter.\n\n## Getting Started\n\n```bash\npython -m venv .venv\nsource .venv/bin/activate\npip install -r requirements.txt\nuvicorn main:app --reload\n```\n"
+      }
+    ]
+  },
+  {
+    "id": "nextjs-starter",
+    "name": "Next.js Starter",
+    "description": "Next.js 14 starter with App Router, TypeScript and Tailwind CSS",
+    "category": "frontend",
+    "framework": "nextjs",
+    "language": "typescript",
+    "parameters": [
+      {
+        "name": "projectName",
+        "label": "Project Name",
+        "type": "string",
+        "default": "nextjs-app"
+      }
+    ],
+    "files": [
+      {
+        "path": "package.json",
+        "content": "{\n  \"name\": \"{{projectName}}\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"scripts\": {\n    \"dev\": \"next dev\",\n    \"build\": \"next build\",\n    \"start\": \"next start\",\n    \"lint\": \"next lint\"\n  },\n  \"dependencies\": {\n    \"next\": \"^14.1.0\",\n    \"react\": \"^18.2.0\",\n    \"react-dom\": \"^18.2.0\"\n  },\n  \"devDependencies\": {\n    \"@types/node\": \"^20.11.0\",\n    \"@types/react\": \"^18.2.55\",\n    \"@types/react-dom\": \"^18.2.19\",\n    \"autoprefixer\": \"^10.4.17\",\n    \"postcss\": \"^8.4.33\",\n    \"tailwindcss\": \"^3.4.1\",\n    \"typescript\": \"^5.3.3\"\n  }\n}"
+      },
+      {
+        "path": "app/layout.tsx",
+        "content": "import type { Metadata } from 'next';\nimport './globals.css';\n\nexport const metadata: Metadata = {\n  title: '{{projectName}}',\n};\n\nexport default function RootLayout({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  return (\n    <html lang=\"en\">\n      <body>{children}</body>\n    </html>\n  );\n}\n"
+      },
+      {
+        "path": "app/page.tsx",
+        "content": "export default function Home() {\n  return (\n    <main className=\"flex min-h-screen flex-col items-center justify-center p-24\">\n      <h1 className=\"text-4xl font-bold mb-4\">{{projectName}}</h1>\n      <p className=\"text-lg text-gray-600\">\n        Next.js 14 + TypeScript + Tailwind CSS starter\n      </p>\n    </main>\n  );\n}\n"
+      },
+      {
+        "path": "app/globals.css",
+        "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n"
+      },
+      {
+        "path": "tailwind.config.ts",
+        "content": "import type { Config } from 'tailwindcss';\n\nconst config: Config = {\n  content: [\n    './pages/**/*.{js,ts,jsx,tsx,mdx}',\n    './components/**/*.{js,ts,jsx,tsx,mdx}',\n    './app/**/*.{js,ts,jsx,tsx,mdx}',\n  ],\n  theme: {\n    extend: {},\n  },\n  plugins: [],\n};\n\nexport default config;\n"
+      },
+      {
+        "path": "postcss.config.js",
+        "content": "module.exports = {\n  plugins: {\n    tailwindcss: {},\n    autoprefixer: {},\n  },\n};\n"
+      },
+      {
+        "path": "tsconfig.json",
+        "content": "{\n  \"compilerOptions\": {\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\n    \"allowJs\": true,\n    \"skipLibCheck\": true,\n    \"strict\": true,\n    \"noEmit\": true,\n    \"esModuleInterop\": true,\n    \"module\": \"esnext\",\n    \"moduleResolution\": \"bundler\",\n    \"resolveJsonModule\": true,\n    \"isolatedModules\": true,\n    \"jsx\": \"preserve\",\n    \"incremental\": true,\n    \"plugins\": [{ \"name\": \"next\" }],\n    \"paths\": {\n      \"@/*\": [\"./*\"]\n    }\n  },\n  \"include\": [\"next-env.d.ts\", \"**/*.ts\", \"**/*.tsx\", \".next/types/**/*.ts\"],\n  \"exclude\": [\"node_modules\"]\n}"
+      },
+      {
+        "path": "next.config.js",
+        "content": "/** @type {import('next').NextConfig} */\nconst nextConfig = {};\n\nmodule.exports = nextConfig;\n"
+      },
+      {
+        "path": "README.md",
+        "content": "# {{projectName}}\n\nNext.js 14 + TypeScript + Tailwind CSS starter.\n\n## Getting Started\n\n```bash\nnpm install\nnpm run dev\n```\n"
+      }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+appId: ai.biiig.desktop
+productName: BiiiG
+copyright: Copyright © 2026 BiiiG
+icon: public/logo.png
+directories:
+  output: release
+  buildResources: build
+files:
+  - dist/**/*
+  - src/main.js
+  - src/preload.js
+  - public/logo.png
+mac:
+  category: public.app-category.developer-tools
+  target:
+    - dmg
+    - zip
+win:
+  target:
+    - nsis
+linux:
+  target:
+    - AppImage
+    - deb
+  artifactName: ${productName}-${version}.${ext}
+publish: null

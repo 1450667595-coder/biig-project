@@ -1,0 +1,22 @@
+{
+  "name": "biiig",
+  "version": "0.1.0",
+  "private": true,
+  "description": "BiiiG - AI-native IDE for vertical industries. Inspired by TRAE and Codex.",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "typescript": "^5.4.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "packageManager": "pnpm@9.0.0"
+}
