@@ -48,3 +48,6 @@ apps/desktop/release/
 *.sqlite
 *.sqlite3
 *.db
+
+# local deploy token (do not commit)
+.gh_token

@@ -6,9 +6,14 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  const config = app.get(ConfigService);
   app.use(helmet());
+  const origins = (config.get<string>('CORS_ORIGINS') || 'http://localhost:5173,http://localhost:3001')
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
   app.enableCors({
-    origin: ['http://localhost:5173', 'http://localhost:3001'],
+    origin: origins,
     credentials: true,
   });
   app.useGlobalPipes(
@@ -19,7 +24,6 @@ async function bootstrap() {
   );
   app.setGlobalPrefix('api');
 
-  const config = app.get(ConfigService);
   const port = config.get<number>('PORT', 3000);
   await app.listen(port);
   console.log(`BiiiG server running on http://localhost:${port}`);
