@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: biiig-server
+    runtime: node
+    plan: free
+    autoDeploy: true
+    buildCommand: |
+      pnpm install --prefer-offline --no-frozen-lockfile
+      pnpm --filter @biiig/shared build
+      pnpm --filter @biiig/server build
+    startCommand: node apps/server/dist/main.js
+    healthCheckPath: /api/models/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: CORS_ORIGINS
+        value: https://1450667595-coder.github.io
+      - key: DATABASE_URL
+        sync: false
+      - key: SQLITE_PATH
+        value: /tmp/biiig.sqlite
